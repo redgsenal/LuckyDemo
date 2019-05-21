@@ -1,0 +1,26 @@
+package com.senal.lucky;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Rows {
+	private static int PICK_SIZE = 6;
+	private int size;
+	List<Pick> picks = new ArrayList<>();
+	List<Pick> prevPicks = new ArrayList<>();
+	
+	public Rows(List<Pick> prevPicks) {
+		this.prevPicks = (prevPicks != null && prevPicks.size() > 0) ? prevPicks : new ArrayList<>();
+	}
+	public Rows() {
+		generatePicks(0);
+	}
+
+	private void generatePicks(int size) {
+		this.size = (size < 1) ? 6 : size;
+		picks = new ArrayList<>();
+		while (picks.size() < size) {
+			picks.add(new Pick());
+		}
+	}
+}

@@ -1,0 +1,6 @@
+package com.senal.lucky;
+
+public class Pick {
+	private int value;
+	
+}

@@ -1,0 +1,13 @@
+package com.senal.lucky;
+
+public class Pick {
+	private int value;
+	
+	public Pick() {
+		
+	}
+	
+	public int getValue() {
+		return value;
+	}
+}

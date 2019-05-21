@@ -1,0 +1,17 @@
+package com.senal.lucky;
+
+public class Pick {
+	private int value;
+
+	public Pick(double minValue, double maxValue) {
+		value = getRandomIntegerBetweenRange(minValue, maxValue);
+	}
+
+	public int getValue() {
+		return value;
+	}
+
+	private int getRandomIntegerBetweenRange(double min, double max) {
+		return (int) ((int) (Math.random() * ((max - min) + 1)) + min);
+	}
+}

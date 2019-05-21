@@ -1,0 +1,8 @@
+package com.senal.lucky;
+
+public class MyPicks {
+
+	public static void main(String[] args) {
+		
+	}
+}

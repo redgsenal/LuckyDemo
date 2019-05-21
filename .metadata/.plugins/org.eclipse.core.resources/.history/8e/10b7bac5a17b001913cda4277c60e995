@@ -1,0 +1,54 @@
+package com.senal.lucky;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
+
+public class Rows {
+	private static int PICK_SIZE = 6;
+	private int size;
+	Set<Pick> picks = new HashSet<>();
+	Set<Pick> prevPicks = new HashSet<>();
+	
+	public Rows(Set<Pick> prevPicks, int picksize) {
+		this.prevPicks = (prevPicks != null && !prevPicks.isEmpty()) ? prevPicks : new HashSet<>();
+		generatePicks(picksize);
+	}
+	public Rows() {
+		generatePicks(PICK_SIZE);
+	}
+
+	private void generatePicks(int size) {
+		this.size = (size < 1) ? 6 : size;
+		picks = new HashSet<>();
+		while (picks.size() < size) {
+			Pick p = new Pick();
+			System.out.println(" p " + p.getValue());
+			prevPicks.addAll(picks);
+			if (!prevPicks.contains(p)) {
+				picks.add(p);
+			}
+		}
+	}
+	
+	public int getSize() {
+		return size;
+	}
+	
+	public Set<Pick> getPicks() {
+		return picks;
+	}
+	
+	@Override
+	public String toString() {
+		List<Pick> pp = new ArrayList<>(picks);
+		Collections.sort(pp);
+		StringBuilder sb = new StringBuilder();
+		sb.append("Picks ");
+		for(Pick p : picks) {
+			sb.append(" ").append(p.getValue());
+		}
+		return sb.toString();
+	}
+}
