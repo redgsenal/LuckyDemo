@@ -10,13 +10,19 @@ public class Rows {
 	List<Pick> picks = new ArrayList<>();
 	List<Pick> prevPicks = new ArrayList<>();
 	
+	public Rows(int picksize) {
+		generatePicks(new ArrayList<>(), picksize);
+	}
 	public Rows(Integer[] prevValues, int picksize) {
 		prevPicks = new ArrayList<>();
 		for(int p : prevValues) {
 			Pick pv = new Pick(p);
 			if (!prevPicks.contains(pv)) {
 				prevPicks.add(pv);
-			}
+			} 
+			/*
+			 * ***note else { System.out.println(" duplicate " + pv.getValue()); }
+			 */
 		}
 		generatePicks(prevPicks, picksize);
 	}
@@ -34,15 +40,17 @@ public class Rows {
 		picks = new ArrayList<>();
 		while (picks.size() < size) {
 			Pick p = new Pick();
-			System.out.println(" p " + p.getValue());			
+			//System.out.println(" p " + p.getValue());			
 			if (!prevPicks.contains(p)) {
 				picks.add(p);
 				prevPicks.add(p);
+			} else {
+				//System.out.println(" duplicate " + p.getValue());
 			}
 		}
-		for(Pick pv : prevPicks) {
-			System.out.println(" " + pv.toString());
-		}
+		/*
+		 * for(Pick pv : prevPicks) { //System.out.println(" -> " + pv.toString()); }
+		 */
 	}
 	
 	public int getSize() {

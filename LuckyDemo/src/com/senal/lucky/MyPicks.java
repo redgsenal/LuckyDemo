@@ -1,10 +1,22 @@
 package com.senal.lucky;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MyPicks {
 
 	public static void main(String[] args) {
-		Integer[] prev = { 2, 4, 8, 43, 23, 3, 55, 66, 22, 67 };
-		Rows r = new Rows(prev, 6);
-		System.out.println(r.toString());
+		List<Rows> rr = new ArrayList<>();
+		List<Pick> pp = new ArrayList<>();
+		while(rr.size() < 6) {
+			Rows r = new Rows(6);
+			if (pp.isEmpty()) {
+				pp.addAll(r.getPicks());
+			} else {
+				r = new Rows(pp, 6);
+			}
+			rr.add(r);
+			System.out.println(r.toString());
+		}
 	}
 }
