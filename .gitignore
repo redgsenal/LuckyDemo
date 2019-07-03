@@ -1,5 +1,9 @@
 /.metadata/
 /.recommenders/
+/.sonarlint/
 .metadata/**/*
 .recommenders/**/*
-
+.sonarlint/**/*
+.metadata/
+.recommenders/
+.sonarlint/
