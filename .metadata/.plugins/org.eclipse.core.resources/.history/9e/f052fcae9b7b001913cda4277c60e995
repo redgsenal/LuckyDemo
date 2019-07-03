@@ -1,5 +1,0 @@
-package com.senal.lucky;
-
-public class Rows {
-	private int size = 6;
-}

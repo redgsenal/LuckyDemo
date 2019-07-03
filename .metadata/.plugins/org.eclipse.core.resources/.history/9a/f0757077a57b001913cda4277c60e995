@@ -1,9 +1,0 @@
-package com.senal.lucky;
-
-public class MyPicks {
-
-	public static void main(String[] args) {
-		Rows r = new Rows();
-		System.out.println(r.toString());
-	}
-}
