@@ -7,3 +7,4 @@
 .metadata/
 .recommenders/
 .sonarlint/
+LuckyDemo/bin/**/*
