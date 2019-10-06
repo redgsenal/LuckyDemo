@@ -8,7 +8,7 @@ public class MyPicks {
 	public static void main(String[] args) {
 		List<Rows> rr = new ArrayList<>();
 		List<Pick> pp = new ArrayList<>();
-		while(rr.size() < 6) {
+		while(rr.size() <18) {
 			Rows r = new Rows(6);
 			if (pp.isEmpty()) {
 				pp.addAll(r.getPicks());
@@ -16,7 +16,8 @@ public class MyPicks {
 				r = new Rows(pp, 6);
 			}
 			rr.add(r);
-			System.out.println(r.toString());
+			String index = String.format("%02d: ", rr.size());
+			System.out.println(index.concat(r.toString()));
 		}
 	}
 }

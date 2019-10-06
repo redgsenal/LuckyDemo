@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Rows {
-	private static int PICK_SIZE = 6;
+	private static final int PICK_SIZE = 6;
 	private int size;
 	List<Pick> picks = new ArrayList<>();
 	List<Pick> prevPicks = new ArrayList<>();
@@ -19,10 +19,7 @@ public class Rows {
 			Pick pv = new Pick(p);
 			if (!prevPicks.contains(pv)) {
 				prevPicks.add(pv);
-			} 
-			/*
-			 * ***note else { System.out.println(" duplicate " + pv.getValue()); }
-			 */
+			}
 		}
 		generatePicks(prevPicks, picksize);
 	}
@@ -40,17 +37,11 @@ public class Rows {
 		picks = new ArrayList<>();
 		while (picks.size() < size) {
 			Pick p = new Pick();
-			//System.out.println(" p " + p.getValue());			
-			if (!prevPicks.contains(p)) {
+			if (!picks.contains(p)) {
 				picks.add(p);
 				prevPicks.add(p);
-			} else {
-				//System.out.println(" duplicate " + p.getValue());
 			}
 		}
-		/*
-		 * for(Pick pv : prevPicks) { //System.out.println(" -> " + pv.toString()); }
-		 */
 	}
 	
 	public int getSize() {
@@ -67,7 +58,7 @@ public class Rows {
 		StringBuilder sb = new StringBuilder();
 		sb.append("Picks ");
 		for(Pick p : picks) {
-			sb.append(" ").append(p.getValue());
+			sb.append(" ").append(p.getStringValue());
 		}
 		return sb.toString();
 	}

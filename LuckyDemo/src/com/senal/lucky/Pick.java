@@ -19,6 +19,10 @@ public class Pick implements Comparable<Pick> {
 	public int getValue() {
 		return value;
 	}
+	
+	public String getStringValue() {
+		return String.format("%02d", getValue());
+	}
 
 	private int getRandomIntegerBetweenRange(int min, int max) {
 	    return (new Random()).nextInt((max - min) + 1) + min;	    
